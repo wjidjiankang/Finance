@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Django操作数据库</title>
+    <link type="text/css" href="/static/base.css" rel="external nofollow"  rel="external nofollow"  rel="stylesheet" />
+</head>
+<body>
+    <table border="1">
+        <tr>
+            <th>代码</th>
+            <th>名字</th>
+            <th>数量</th>
+            <th>金额</th>
+            <th>时间</th>
+        </tr>
+        {% for item in li %}
+        <tr>
+            <td>{{ item.code }}</td>
+            <td>{{ item.name }}</td>
+            <td>{{ item.qty }}</td>
+            <td>{{ item.amt }}</td>
+            <td>{{ item.date }}</td>
+         </tr>
+        {% endfor %}
+      </table>
+    <form action="/db_handle" method="post">
+         <p><input name="bookcode" /></p>
+         <p><input name="bookname" /></p>
+         <p><input name="bookqty" /></p>
+         <p><input name="bookamt" /></p>
+<!--         <p><input name="time" /></p>-->
+         <p><input type="submit" value="submit" /></p>
+     </form>
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title_block %}
+ Get your word
+{% endblock %}
+
+
+{% block body %}
+<h4><strong>留点记录吧</strong></h4>
+{% endblock %}
+
+  {% block content %}
+
+
+      <form action="{% url 'stock:getword'  %}" method="POST">
+         {% csrf_token %}
+         {{form.as_p}}
+         <button name="'submit">Save</button>
+      </form>
+
+
+  {% endblock content %}
+</body>
+</html>

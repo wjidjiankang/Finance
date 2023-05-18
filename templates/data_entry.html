@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title_block %}
+ Data Entry
+{% endblock %}
+
+
+{% block body %}
+<h4><strong>我在这里留下记录</strong></h4>
+{% endblock %}
+
+
+
+  {% block content %}
+
+     <form name="loginForm" action="/buystock" method="POST">
+<!-- 		 <input type="radio" name="sex"/>买入   -->
+<!--     	 <input type="radio" name="sex"/>卖出   -->
+
+        {% csrf_token %}
+		<table>
+            <tr>
+				<td>买股票:</td>
+			</tr>
+			<tr>
+				<td>股票代码:</td>
+				<td><input  name="bcode"  /></td>
+			</tr>
+			<tr>
+				<td>数量</td>
+				<td><input  name="bquantity"  /></td>
+			</tr>
+            <tr>
+				<td>价格</td>
+				<td><input  name="bprice"  /></td>
+			</tr>
+			<tr>
+				<td colospan="2" align="center">
+	                 <input type="submit" name="bconfirm" value="确定" />&nbsp;&nbsp;</td>
+			</tr>
+		</table>
+	</form></br></br>
+
+	 {{word}}
+
+
+     <form name="loginForm1" action="/sellstock/" method="POST">
+        {% csrf_token %}
+		<table>
+            <tr>
+				<td>卖股票:</td>
+			</tr>
+			<tr>
+				<td>股票代码:</td>
+				<td><input  name="scode"  /></td>
+			</tr>
+			<tr>
+				<td>数量</td>
+				<td><input  name="squantity"  /></td>
+			</tr>
+            <tr>
+				<td>价格</td>
+				<td><input name="sprice"  /></td>
+			</tr>
+			<tr>
+				<td colospan="2" align="center">
+	            <input type="submit" name="cofirm2" value="确定" />&nbsp;&nbsp;
+				</td>
+			</tr>
+		</table>
+	</form></br></br>
+
+<div style="text-align: center;">
+<table border="1">
+      <tr>
+		  <th>时间</th>
+		  <th>股票代码</th>
+		  <th>股票名称</th>
+		  <th>操作</th>
+		  <th>数量</th>
+		  <th>价格</th>
+		  <th>金额</th>
+	  </tr>
+	{% for item in li %}
+      <tr>
+		  <td>{{ item.date }}</td>
+		  <td>{{ item.code }}</td>
+		  <td>{{ item.name }}</td>
+		  <td>{{ item.mark }}</td>
+		  <td>{{ item.quantity }}</td>
+		  <td>{{ item.price }}</td>
+		  <td>{{ item.amount }}</td>
+	  </tr>
+	{% endfor %}
+   </table>
+</div>
+  {% endblock content %}

@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title_block %}
+ Show PEG
+{% endblock %}
+
+
+{% block body %}
+<h4><strong>操蛋的券商</strong></h4>
+{% endblock %}
+
+
+  {% block content %}
+
+
+ <div style="text-align: center;">
+<table border="1",style="text-align: center;">
+      <tr>
+		  <th>股票代码</th>
+		  <th>股票名称</th>
+		  <th>研报数量</th>
+          <th>21年EPS</th>
+          <th>22年EPS(估)</th>
+		  <th>23年EPS(估)</th>
+		  <th>24年EPS(估)</th>
+          <th>23-24增长率</th>
+		  <th>24市盈率</th>
+		  <th>PEG</th>
+	  </tr>
+	{% for item in li %}
+      <tr>
+		  <td>{{ item.code }}</td>
+		  <td>{{ item.name }}</td>
+		  <td>{{ item.reportqty }}</td>
+		  <td>{{ item.profit_n }}</td>
+          <td>{{ item.profit_n1 }}</td>
+		  <td>{{ item.profit_n2}}</td>
+		  <td>{{ item.profit_n3}}</td>
+		  <td>{{ item.GRR}}%</td>
+		  <td>{{ item.PEttm}}</td>
+          <td>{{ item.PEG }}</td>
+	  </tr>
+	{% endfor %}
+   </table>
+</div>
+
+  {% endblock content %}
+</body>
+</html>

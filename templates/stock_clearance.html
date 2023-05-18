@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+{% block title_block %}
+	 Stocks
+{% endblock %}
+
+{% block head_block %}
+	<meta http-equiv="refresh" content="180">
+{% endblock %}
+
+{% block body %}
+<h4><strong>我的前女友们</strong></h4>
+{% endblock %}
+
+
+{% block content %}
+
+<table border="1" cellspacing="10px">
+      <tr>
+		  <th>股票代码</th>
+		  <th>股票名称</th>
+          <th>盈亏</th>
+	  </tr>
+	{% for item in stocks %}
+      <tr>
+		  <td>{{ item.code }}</td>
+		  <td>{{ item.name }}</td>
+          <td>{{ item.profit }}</td>
+	  </tr>
+	{% endfor %}
+   </table>
+   <p>盈利 {{totalprofit}}</p>
+	</div>
+
+{% endblock content %}
+

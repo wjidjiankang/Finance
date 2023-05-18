@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title_block %}
+ predict
+{% endblock %}
+
+
+{% block body %}
+<h4><strong>看看猜得准不准</strong></h4>
+{% endblock %}
+
+
+
+  {% block content %}
+     <form name="voa" action="/predict/" method="POST">
+<!-- 		 <input type="radio" name="sex"/>买入   -->
+<!--     	 <input type="radio" name="sex"/>卖出   -->
+        {% csrf_token %}
+		 股票代码:<input  name="code"  />
+		 <input type="submit" name="bconfirm" value="确定" />&nbsp;
+     </form>
+    <p>股票"{{name}}"(代码{{code}})的估值是 </p>
+    <p><font size="9" color="red">{{voa}}</font></p>
+    <p>上次估值是{{voa_pre}}</p>
+  {% endblock content %}
+
+

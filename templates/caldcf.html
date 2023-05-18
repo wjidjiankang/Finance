@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title_block %}
+ Cal DCF
+{% endblock %}
+
+
+{% block body %}
+<h4><strong>我太难了</strong></h4>
+{% endblock %}
+
+
+  {% block content %}
+
+<form name="cal" action="/cal_dcf/" method="POST">
+     {% csrf_token %}
+    <p><label>自由现金流</label><input name = 'base_dcf'>  <label>折算率</label><input name = 'discountratio'>  </p>
+    <br>
+    <p><label>第一阶段</label>    </p>
+    <p><label>增长率</label><input name = 'ratio1'>  <label>年数</label><input name = 'year1'>  </p>
+    <p><label>累计现金流</label> {{subttl1}}   </p>
+    <br>
+    <p><label>第二阶段</label>    </p>
+    <p><label>增长率</label><input name = 'ratio2'>  <label>年数</label><input name = 'year2'>  </p>
+    <p><label>累计现金流</label> {{subttl2}}   </p>
+    <br>
+    <p><label>第三阶段</label>    </p>
+    <p><label>增长率</label><input name = 'ratio3'>  <label>年数</label><input name = 'year3'>  </p>
+    <p><label>累计现金流</label> {{subttl3}}   </p>
+    <br>
+    <p><label>第四阶段</label>    </p>
+    <p><label>增长率</label><input name = 'ratio4'>  <label>年数</label><input name = 'year4'>  </p>
+    <p><label>累计现金流</label> {{subttl4}}   </p>
+    <br>
+    <p><label>总累计现金流</label> {{total}}  <label>总股数</label><input name = 'totalstock'>  </p>
+    <p><label>估值</label> {{price}}   </p>
+    <br>
+    <input type="submit" name="submit" value="确定" />&nbsp;&nbsp;
+</form>
+
+  {% endblock content %}
+</body>
+</html>
