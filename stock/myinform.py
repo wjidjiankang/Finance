@@ -113,7 +113,7 @@ class StockInform():
         self.category = self.get_category()
 
     def get_location(self):
-        if re.match(r'^[56]', self.code):
+        if re.match(r'^[568]', self.code):
             location = 'Shanghai'
         if re.match(r'^[0-3]', self.code):
             location = 'Shenzhen'
@@ -122,7 +122,7 @@ class StockInform():
     def get_category(self):
         if re.match(r'^[15]', self.code):
             category = 'ETF'
-        if re.match(r'^[0236]', self.code):
+        if re.match(r'^[02368]', self.code):
             category = 'Stock'
         return category
 
